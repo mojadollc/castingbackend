@@ -1,6 +1,6 @@
 {
   "name": "Kids Casting Backend",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
   "forwardPorts": [3000, 5432, 6379],
   "portsAttributes": {
     "3000": { "label": "API / Swagger", "onAutoForward": "notify" },
@@ -11,7 +11,8 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "version": "latest",
       "dockerDashComposeVersion": "v2"
-    }
+    },
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" }
   },
   "postCreateCommand": "npm ci --legacy-peer-deps && docker compose up -d postgres redis && sleep 8 && npx prisma generate && npx prisma migrate deploy",
   "customizations": {
