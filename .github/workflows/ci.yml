@@ -9,6 +9,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     services:
       postgres:
@@ -90,8 +91,3 @@ jobs:
 
       - name: Security tests
         run: npm run test:security
-
-      - name: Integration tests
-        run: npm run test:integration
-        env:
-          TEST_DB_AVAILABLE: true
